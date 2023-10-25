@@ -6,12 +6,23 @@ chunk_output_type: console
 ---
 
 ```{r knit into synapse, eval=FALSE, include=FALSE}
+## New lines for calling synapseclient
+synapseclient <- reticulate::import("synapseclient")
+syn_temp <- synapseclient$Synapse()
+syn_temp$login() # is fails use syn_temp$login(authToken = <yourPAT>)
+# get your PAT at "https://www.synapse.org/#!PersonalAccessTokens:"
+
+### Note the new function being called from knit2synapse
+### Please install this version of knit2synapse
+### devtools::install_github("jgockley62/knit2synapse")
+
 library(synapser)
 library(knit2synapse)
 synapser::synLogin()
-knit2synapse::createAndKnitToFolderEntity(file = "dashboard_sleep_archive_markdown.Rmd",
+
+knit2synapse::createAndKnitToFolderEntityClient(file = "dashboard_sleep_archive_markdown.Rmd",
                                           parentId = "syn52540337",
-                                          folderName = "dashboard_sleep_archive_2023_09_21")
+                                          folderName = "dashboard_sleep_archive_test")
 ```
 
 ```{r required libraries, include=FALSE, warning=FALSE, echo=FALSE, message=FALSE}
@@ -22,7 +33,7 @@ knitr::opts_chunk$set(echo = FALSE)
 library(synapser)
 library(tidyverse)
 library(arrow)
-library(lubridate)
+# library(lubridate)
 library(knitr)
 ```
 
