@@ -16,6 +16,9 @@ syn_temp$login() # is fails use syn_temp$login(authToken = <yourPAT>)
 ### Please install this version of knit2synapse
 ### devtools::install_github("jgockley62/knit2synapse")
 
+### Please install v1.28 of reticulate, as this is the needed version for synapser
+### devtools::install_version("reticulate", version = "1.28", repos = "http://cran.us.r-project.org")
+
 library(synapser)
 library(knit2synapse)
 synapser::synLogin()
