@@ -23,7 +23,7 @@ library(synapser)
 library(knit2synapse)
 synapser::synLogin()
 
-knit2synapse::createAndKnitToFolderEntityClient(file = "dashboard_sleep_archive_markdown.Rmd",
+knit2synapse:::createAndKnitToFolderEntityClient(file = "dashboard_sleep_archive_markdown.Rmd",
                                           parentId = "syn52540337",
                                           folderName = "dashboard_sleep_archive_test")
 ```
